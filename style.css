@@ -1,0 +1,455 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: black;
+  color: #e7e7e7;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.image-gradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.layer-blur {
+  height: 0;
+  width: 30rem;
+  position: absolute;
+  top: 20%;
+  right: 0;
+  box-shadow: 0 0 700px 15px white;
+  rotate: -30deg;
+  z-index: -1;
+}
+
+/* container */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+  z-index: 10;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: -5%;
+}
+
+/* 🔹 RGB Glow Animation */
+@keyframes rgb-glow {
+  0% { border-color: rgb(255, 0, 0); box-shadow: 0 0 10px rgb(255, 0, 0); }
+  25% { border-color: rgb(0, 255, 0); box-shadow: 0 0 10px rgb(0, 255, 0); }
+  50% { border-color: rgb(0, 0, 255); box-shadow: 0 0 10px rgb(0, 0, 255); }
+  75% { border-color: rgb(255, 0, 255); box-shadow: 0 0 10px rgb(255, 0, 255); }
+  100% { border-color: rgb(255, 0, 0); box-shadow: 0 0 10px rgb(255, 0, 0); }
+}
+
+/* Nav links */
+nav a {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+nav a:hover {
+  animation: rgb-glow 3s infinite linear;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Login button */
+.login {
+  background-color: transparent;
+  color: #e7e7e7;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.login:hover {
+  animation: rgb-glow 3s infinite linear;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: scale(1.05);
+}
+
+/* Main container */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(90vh - 6rem);
+  padding: 2rem;
+}
+
+/* Content wrapper */
+.content {
+  max-width: 35rem;
+  margin-left: 8%;
+  z-index: 10;
+  position: relative;
+}
+
+/* Tag box with animated gradient */
+.tag-box {
+  position: relative;
+  width: 15rem;
+  height: 2.2rem;
+  border-radius: 40px;
+  background: linear-gradient(to right, #666, #7f42a7, #6600c5, #5300a0, #757575);
+  background-size: 200% 100%;
+  animation: animationgradient 3s linear infinite;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes animationgradient {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+.tag-box .tag {
+  position: absolute;
+  inset: 2px;
+  background-color: black;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.4s ease;
+  border: 1px solid transparent;
+}
+
+.tag-box .tag:hover {
+  color: #fff;
+  border: 1px solid #5300a0;
+  box-shadow: 0 0 8px #5300a0;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  margin: 1.5rem 0;
+  line-height: 1.3;
+  text-shadow: 0 0 5px rgba(128,128,128,0.3);
+}
+
+.buttons {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.btn-get-started {
+  text-decoration: none;
+  border: 1px solid #333;
+  padding: 0.6rem 1.1rem;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  color: #b8b8b8;
+}
+
+.btn-get-started:hover {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.btn-signing-main {
+  text-decoration: none;
+  background-color: #d3d3d3;
+  color: black;
+  padding: 0.6rem 2rem;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-signing-main:hover {
+  background-color: #999;
+  transform: translateY(-2px);
+}
+
+/* Robot */
+.robot-3d {
+  position: absolute;
+  top: 0;
+  right: -20%;
+  pointer-events: none;
+  max-width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+/* Responsive Breakpoints */
+
+/* Large screens (laptops, 1400px - 1200px) */
+@media (max-width: 1400px){
+  header{
+    padding: 1rem 2rem;
+  }
+  .content{
+    margin-left: 5%;
+    max-width: 30rem;
+  }
+  .robot-3d{
+    scale: 0.8;
+    top: -10%;
+    right: 2%;
+  }
+}
+
+/* Medium screens (tablets, 1024px - 768px) */
+@media (max-width: 1024px){
+  header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+  nav{
+    gap: 1rem;
+  }
+  .content{
+    margin-left: 0;
+    margin-top: 10%;
+    max-width: 28rem;
+  }
+  .content h1{
+    font-size: 2rem;
+  }
+  .robot-3d{
+    scale: 0.7;
+    top: 5%;
+    right: -5%;
+  }
+}
+
+/* Small screens (mobiles, 767px - 480px) */
+@media (max-width: 767px){
+  header{
+    padding: 1rem 1rem;
+  }
+  nav{
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .content{
+    margin-left: 0;
+    margin-top: 15%;
+    max-width: 95%;
+    padding: 0 1rem;
+  }
+  .content h1{
+    font-size: 1.8rem;
+  }
+  .buttons{
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .robot-3d{
+    scale: 0.8;
+    top: -20%;
+    right: 2%;
+  }
+}
+
+   /* about section */
+
+footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+    background: transparent; 
+}
+
+.footer-line {
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+    margin-bottom: 20px;
+}
+
+.names {
+    color: #bbb; 
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.names p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.names ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.names ul li {
+    display: inline-block;
+    margin: 0 12px;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.names ul li:hover {
+    color: #9b5cff; 
+    cursor: pointer;
+}
+
+
+/* Large screens (<= 1400px) */
+@media (max-width: 1400px) {
+  header {
+    padding: 1rem 2rem;
+  }
+  .content {
+    margin-left: 5%;
+    max-width: 30rem;
+  }
+  .robot-3d {
+    transform: translateZ(0) scale(0.9);
+    top: -8%;
+    right: 2%;
+  }
+}
+
+/* Slightly smaller laptops (<= 1368px) */
+@media (max-width: 1368px) {
+  header {
+    padding: 0.8rem 1.2rem;
+  }
+  .content {
+    margin-left: 4%;
+    margin-top: 6vh; /* sensible vertical spacing instead of huge 80% */
+    max-width: 28rem;
+  }
+  .robot-3d {
+    transform: translateZ(0) scale(0.85);
+    top: -6%;
+    right: 2%;
+  }
+}
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+  nav {
+    gap: 1rem;
+  }
+  .content {
+    margin-left: 0;
+    margin-top: 10vh;
+    max-width: 28rem;
+    padding: 0 1rem;
+  }
+  .content h1 {
+    font-size: 2rem;
+  }
+  .robot-3d {
+    transform: translateZ(0) scale(0.7);
+    top: 5%;
+    right: -5%;
+  }
+}
+
+/* Small screens (<= 767px) */
+@media (max-width: 767px) {
+  header {
+    padding: 1rem 1rem;
+  }
+  nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .content {
+    margin-left: 0;
+    margin-top: 15vh;
+    max-width: 95%;
+    padding: 0 1rem;
+  }
+  .content h1 {
+    font-size: 1.8rem;
+  }
+  .buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .robot-3d {
+    transform: translateZ(0) scale(0.7);
+    top: -10%;
+    right: 2%;
+  }
+}
+
+/* Extra small screens (phones, <= 480px) */
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 1.5rem;
+  }
+  .tag-box {
+    width: 12rem;
+    height: 2rem;
+  }
+  .btn-get-started,
+  .btn-signing-main {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  .robot-3d {
+    transform: translateZ(0) scale(0.45);
+    top: 5%;
+    right: -15%;
+  }
+}
