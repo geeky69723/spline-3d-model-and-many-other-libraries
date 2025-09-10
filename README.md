@@ -1,3 +1,4 @@
 # spline-3d-model-and-many-other-libraries
-hackathon frontend project 
+inspired by yt tutorial video,
+hackathon frontend project,
 ignore js code
